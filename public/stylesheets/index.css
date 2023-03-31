@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+body {
+    width: 80vw;
+    height: 100vh;
+    border: 5px double rgb(88, 88, 88);
+    background-color: #e9e9e9;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.landing {
+    width: 100%;
+    height: 100%;
+    background-color: #CCCCCC;
+    ;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.landing nav {
+    width: 100%;
+    font-size: 1.2em;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.landing nav a {
+    padding: 5px;
+    color: blue;
+}
+
+.landing nav a:visited {
+    color: purple;
+}
+
+.landing h1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: blue;
+    /* outline: 1px solid blue; */
+}
+
+.landing main {
+    width: 100%;
+    /* outline: 1px solid blue; */
+}
+
+.landing main div {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    /* outline: 1px solid blue; */
+}
+
+.landing main div p {
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 30px;
+}
+
+.landing main div .sell {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.1em;
+    color: blue;
+}
+
+.landing main div .top {
+    font-style: italic;
+}
+
+.name {
+    font-size: 1.5em;
+    color: blue;
+}

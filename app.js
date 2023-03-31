@@ -16,6 +16,7 @@ require('./config/passport');
 // Defining routes
 var indexRouter = require('./routes/index');
 var passportRouter = require("./routes/passport");
+var landingRouter = require("./routes/landing");
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use(passport.session());
 // Routes
 app.use('/', indexRouter);
 app.use("/auth", passportRouter);
+app.use("/landing", landingRouter);
 
 
 

@@ -4,18 +4,15 @@ var passport = require('passport');
 
 // BASE_URL = localhost:3000/auth
 // localhost:3000/auth/google
-router.get('/google', passport.authenticate(
-    'google',
+router.get('/google', passport.authenticate('google',
     { scope: ['profile', 'email'] }
 ));
 
 // localhost:3000/auth/google/oauth2callback
-router.get('/google/oauth2callback', passport.authenticate(
-    'google',
-    {
-        successRedirect: '/landing',
-        failureRedirect: '/error'
-    }
+router.get('/google/oauth2callback', passport.authenticate('google', {
+    successRedirect: '/landing',
+    failureRedirect: '/google'
+}
 ));
 
 // localhost:3000/auth/logout

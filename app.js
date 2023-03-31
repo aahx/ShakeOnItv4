@@ -8,6 +8,9 @@ var methodOverride = require('method-override');
 var session = require('express-session');
 var passport = require('passport');
 
+// loading env, db, passport
+require('dotenv').config();
+require('./config/passport');
 
 // defining routes
 var indexRouter = require('./routes/index');

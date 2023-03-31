@@ -8,14 +8,10 @@ var methodOverride = require('method-override');
 var session = require('express-session');
 var passport = require('passport');
 
-// loading env, db, passport
-// require('dotenv').config();
-// require('./config/passport');
 
 // defining routes
 var indexRouter = require('./routes/index');
 var passportRouter = require("./routes/passport");
-// var usersRouter = require('./routes/users');
 
 
 var app = express();
@@ -33,7 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', indexRouter);
 app.use("/auth", passportRouter);
-app.use('/users', usersRouter);
 
 
 

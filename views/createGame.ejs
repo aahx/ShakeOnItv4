@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Shake On It - Games </title>
+</head>
+
+<body>
+    <h1> CREATE GAMES </h1>
+    <nav>
+        <a href="/landing"> LANDING </a>
+    </nav>
+
+    <br /><br />
+
+    <main>
+        <div>
+            <h2> Create New Game: </h2>
+            <!-- If there are friends in your friendslist -->
+            <% if(friendsGamertags && friendsGamertags.length> 0){ %>
+                <form id="create-game-form" action="/creategame/newgame" method="POST">
+                    <label for="game-friend"> Select Friend: </label>
+                    <select id="game-friend" name="player2">
+                        <% friendsGamertags.forEach((gamertag)=>{ %>
+                            <option value="<%= gamertag %>">
+                                <%= gamertag %>
+                            </option>
+                            <% }) %>
+                    </select>
+                    <br /><br />
+
+
+                    <label for="game-title"> Game Title: </label>
+                    <br />
+                    <input id="game-title" type="text" name="name" autocomplete="off" placeholder="Game Title" required>
+                    <br /><br />
+
+                    <label for="game-description"> Game Description: </label>
+                    <br />
+                    <textarea id="game-description" name="description" autocomplete="off" placeholder="Description"
+                        required></textarea>
+                    <br /><br />
+
+                    <label for="game-wager"> Wager: </label>
+                    <br />
+                    <input id="game-wager" type="text" name="wager" autocomplete="off" placeholder="Wager" required>
+                    <br /><br />
+
+                    <label for="game-expiration"> Expiration Date:</label>
+                    <input id="game-expiration" type="date" name="expiration" min="" required>
+
+
+                    <button type="submit">Challenge Friend</button>
+                    <p id="error-message" style="color: red;">
+                        <%= errorMessage %>
+                    </p>
+                    <p id="success-message" style="color: green;">
+                        <%= successMessage %>
+                    </p>
+                </form>
+                <% } else { %>
+                    <p> No friends added yet. </p>
+                    <a href="/friends"> Add friends </a>
+                    <% } %>
+        </div>
+    </main>
+    <script>
+        const today = new Date();
+        today.setDate(today.getDate());
+        const formattedTodaysDate = today.toISOString().slice(0, 10);
+
+        console.log("formattedTodaysDate", formattedTodaysDate);
+        document.getElementById("game-expiration").min = formattedTodaysDate;
+    </script>
+</body>
+
+</html>

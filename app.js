@@ -19,6 +19,7 @@ var passportRouter = require("./routes/passport");
 var landingRouter = require("./routes/landing");
 var profileRouter = require("./routes/profile");
 var friendsRouter = require('./routes/friends');
+var createGameRouter = require('./routes/createGame');
 
 var app = express();
 
@@ -50,6 +51,7 @@ app.use("/auth", passportRouter);
 app.use("/landing", landingRouter);
 app.use('/profile', profileRouter);
 app.use('/friends', friendsRouter);
+app.use('/creategame', createGameRouter);
 
 
 

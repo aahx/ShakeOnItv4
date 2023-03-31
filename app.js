@@ -10,6 +10,7 @@ var passport = require('passport');
 
 // Loading env, db, passport
 require('dotenv').config();
+require('./config/database');
 require('./config/passport');
 
 // Defining routes

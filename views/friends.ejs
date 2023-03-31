@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Shake On It - Friends </title>
+</head>
+
+<body>
+    <h1> FRIENDS PAGE </h1>
+    <nav>
+        <a href="/landing"> LANDING </a>
+        <br />
+        <a href="/creategame"> CREATE GAME </a>
+    </nav>
+
+    <br /><br />
+
+
+    <main>
+        <div>
+            Current Friends: <br />
+            <% if(friendsGamertags && friendsGamertags.length> 0){ %>
+                <select id="friend-dropdown">
+                    <% friendsGamertags.map((gamertag)=>{ %>
+                        <option>
+                            <%= gamertag %>
+                        </option>
+                        <% }) %>
+                </select>
+                <% } else { %>
+                    <p> No friends added yet. </p>
+                    <% } %>
+        </div>
+
+        <br /><br />
+
+        <div>
+            <form id="add-friend-form" action="/friends/addfriend" method="POST">
+                <label for="friend"> Add Friend By Gamertag: </label>
+                <input id="friend" type="text" name="gamertag" autocomplete="off" placeholder="Gamertag" required>
+                <button type="submit">Add Friend</button>
+                <p id="error-message" style="color: red;">
+                    <%= errorMessage %>
+                </p>
+                <p id="success-message" style="color: green;">
+                    <%= successMessage %>
+                </p>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

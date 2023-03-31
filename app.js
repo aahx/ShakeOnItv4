@@ -17,7 +17,8 @@ require('./config/passport');
 var indexRouter = require('./routes/index');
 var passportRouter = require("./routes/passport");
 var landingRouter = require("./routes/landing");
-const profileRouter = require("./routes/profile");
+var profileRouter = require("./routes/profile");
+var friendsRouter = require('./routes/friends');
 
 var app = express();
 
@@ -48,6 +49,7 @@ app.use('/', indexRouter);
 app.use("/auth", passportRouter);
 app.use("/landing", landingRouter);
 app.use('/profile', profileRouter);
+app.use('/friends', friendsRouter);
 
 
 

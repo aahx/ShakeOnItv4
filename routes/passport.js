@@ -13,7 +13,7 @@ router.get('/google', passport.authenticate(
 router.get('/google/oauth2callback', passport.authenticate(
     'google',
     {
-        successRedirect: '/',
+        successRedirect: '/landing',
         failureRedirect: '/error'
     }
 ));

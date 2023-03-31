@@ -17,6 +17,7 @@ require('./config/passport');
 var indexRouter = require('./routes/index');
 var passportRouter = require("./routes/passport");
 var landingRouter = require("./routes/landing");
+const profileRouter = require("./routes/profile");
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Middlewares
+app.use(methodOverride('_method'));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -45,6 +47,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use("/auth", passportRouter);
 app.use("/landing", landingRouter);
+app.use('/profile', profileRouter);
 
 
 

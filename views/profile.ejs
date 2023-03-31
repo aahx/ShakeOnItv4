@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Shake On It - Profile </title>
+</head>
+
+<body>
+    <h1> PROFILE PAGE </h1>
+    <nav>
+        <a href="/landing"> LANDING </a>
+    </nav>
+
+    <main>
+        <img src="<%= user.avatar %>">
+        <br />
+        <%= user.name %>
+            <br />
+            <%= user.email %>
+                <br />
+                Current Gamertag: <%= user.gamertag %>
+                    <div>
+                        <form id="update-form" action="/profile/updategamertag?_method=PUT" method="POST">
+                            <label for="gamertag"> Enter New Gamertag: </label>
+                            <input type="text" id="gamertag" name="gamertag" autocomplete="off"
+                                placeholder="Enter New Gamer Tag"
+                                onkeydown="if(event.keyCode === 13){submitForm(event)}" required>
+                            <button type="button" id="update-button" onclick="submitForm(event)"> Update </button>
+                            <p id="error-message" style="display: none; color: red;">Gamertag already exists</p>
+                        </form>
+                    </div>
+    </main>
+
+    <script>
+        // (2) validator for onClick function 
+        async function validateGamertag(gamertag) {
+            const response = await fetch(`/profile/checkgamertag?gamertag=${gamertag}`);
+            const doesGamertagAlreadyExist = await response.json(); // returns boolean
+            return doesGamertagAlreadyExist;
+        };
+
+        // DOM objects
+        const updateForm = document.getElementById("update-form");
+        const gamertagInput = document.getElementById("gamertag");
+        const errorMessage = document.getElementById("error-message");
+
+        // (1) on Button Click
+        async function submitForm(event) {
+            event.preventDefault(); // prevents form being submitted pre-checks
+            const gamertag = gamertagInput.value;
+            const gamertagExists = await validateGamertag(gamertag);
+            if (gamertagExists) {
+                errorMessage.style.display = "block";
+            } else {
+                if (confirm("Are you sure you want to update your gamertag?")) {
+                    updateForm.submit();
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

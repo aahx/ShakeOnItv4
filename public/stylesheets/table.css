@@ -22,7 +22,3 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #ddd;
 }
-
-td:last-child {
-    text-align: center;
-}

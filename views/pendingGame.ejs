@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/pending.css">
+    <title> Shake On It - Pending </title>
+</head>
+
+<body>
+    <h1> PENDING GAMES </h1>
+    <nav>
+        <a href="/landing"> LANDING </a>
+    </nav>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Game Title</th>
+                    <th>Description</th>
+                    <th>Wager</th>
+                    <th>Expiration</th>
+                    <th>Player 1</th>
+                    <th>Player 2</th>
+                    <th>Status</th>
+                    <th>Accept</th>
+                    <th>Decline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% gamesData.forEach((game)=> { %>
+                    <tr>
+                        <td>
+                            <%= game.name %>
+                        </td>
+                        <td>
+                            <%= game.description %>
+                        </td>
+                        <td>
+                            <%= game.wager %>
+                        </td>
+                        <td>
+                            <%= game.expiration %>
+                        </td>
+                        <td>
+                            <%= game.player1 %>
+                        </td>
+                        <td>
+                            <%= game.player2 %>
+                        </td>
+                        <td>
+                            <%= game.status %>
+                        </td>
+                        <% if(userGamertag !== game.player1){ %>
+                            <td>
+                                <a href="/games/accept/<%= game.id %>">Accept<a/>
+                            </td>
+                        <% } else { %>
+                            <td> 
+                                waiting for <%= game.player2 %>
+                            </td>
+                        <% } %>
+                        <td>
+                            <a href="/games/decline/<%= game.id %>">Decline<a/>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>

@@ -20,7 +20,7 @@ const gamesSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'active'],
+        enum: ['pending', 'accepted', 'declined'],
         default: 'pending'
     },
     winner: String

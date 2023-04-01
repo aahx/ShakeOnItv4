@@ -1,0 +1,79 @@
+main {
+    max-width: 600px;
+    /* set max width for the main container */
+    margin: 0 auto;
+    /* center the main container */
+    text-align: center;
+    /* center align the contents of the main container */
+    padding: 20px;
+    /* add some padding to the main container */
+}
+
+img {
+    border-radius: 50%;
+    /* round the corners of the user avatar */
+    width: 150px;
+    /* set width of the user avatar */
+    height: 150px;
+    /* set height of the user avatar */
+    object-fit: cover;
+    /* maintain aspect ratio of the user avatar */
+    margin-bottom: 20px;
+    /* add some margin at the bottom of the user avatar */
+}
+
+form {
+    display: inline-block;
+    /* display the update gamertag form in a line with the label and input */
+    margin-top: 20px;
+    /* add some margin at the top of the form */
+}
+
+label {
+    display: inline-block;
+    /* display the form label in a line with the input */
+    text-align: left;
+    /* left align the form label */
+    width: 150px;
+    /* set width of the form label */
+    margin-right: 10px;
+    /* add some margin at the right of the form label */
+}
+
+input[type="text"] {
+    padding: 5px;
+    /* add some padding to the input field */
+    border-radius: 5px;
+    /* round the corners of the input field */
+    border: none;
+    /* remove border from the input field */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    /* add shadow to the input field */
+}
+
+button[type="button"] {
+    padding: 5px 10px;
+    /* add some padding to the update button */
+    border-radius: 5px;
+    /* round the corners of the update button */
+    border: none;
+    /* remove border from the update button */
+    background-color: #333;
+    /* set background color of the update button */
+    color: white;
+    /* set font color of the update button */
+    cursor: pointer;
+    /* add pointer cursor to the update button */
+}
+
+button[type="button"]:hover {
+    background-color: #666;
+    /* change the background color of the update button on hover */
+}
+
+#error-message {
+    display: none;
+    /* hide the error message by default */
+    margin-top: 10px;
+    /* add some margin at the top of the error message */
+}

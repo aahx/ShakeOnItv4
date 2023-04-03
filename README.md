@@ -96,12 +96,14 @@ https://user-images.githubusercontent.com/105463926/229617420-98b02f59-0a6a-458f
 
 The Users schema represents a user in the system, and contains the following fields:
 
-< insert user schema code >
+![Screen Shot 2023-04-03 at 12 25 27 PM](https://user-images.githubusercontent.com/105463926/229618520-47b280c8-e813-475f-a013-27e4be5faf09.png)
+
 < Code for Users schema can be found in models/users.js >
 
 The Users schema also contains a pre-save hook that generates a unique gamertag for the user and checks for any existing gamertags. Here's a truncated version of the code:
 
-< insert pre-save hook >
+![usersprehook](https://user-images.githubusercontent.com/105463926/229618590-b019b631-6ff3-465d-9a48-45920e4adcb1.png)
+
 < Code for Users pre-save hook can be found in models/users.js >
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -112,6 +114,7 @@ The Users schema also contains a pre-save hook that generates a unique gamertag 
 The FriendsList schema represents a list of friends for a user, and contains the following fields:
 
 ![Screen Shot 2023-04-03 at 12 25 06 PM](https://user-images.githubusercontent.com/105463926/229618302-f88b219e-8920-4278-bddc-d9da5e633f1d.png)
+
 < Code for FriendsList schema can be found in models/friends.js >
 
 The gamertag field was previously included in the friendsSchema object, but was causing issues when a user changed their gamertag. In some cases, a friend's old gamertag would still appear in the FriendsList for other users. To avoid this, the gamertag field was removed from the friendsSchema object.
@@ -126,6 +129,7 @@ To display a friend's gamertag, the Users schema is queried by the friend's _id,
 The Games schema represents a game between two users and includes fields for the name of the game, a description, a wager, an expiration date, references to the players as User objects, the status of the game, and the username of the winner. This schema provides a flexible structure for tracking user-defined games and their outcomes.
 
 ![Screen Shot 2023-04-03 at 12 25 18 PM](https://user-images.githubusercontent.com/105463926/229618361-5cc08fff-0b4c-474c-98b3-4a50bc05ddb7.png)
+
 < Code for Games schema can be found in models/games.js >
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -144,7 +148,11 @@ Additionally, the index function is designed to gracefully handle situations whe
 
 Another example of the project's commitment to user experience is the use of gamertags. When a user updates their gamertag, this information is consistently updated across all pending and accepted games, as well as in other friend lists and game forms. This ensures that the user's gamertag remains up-to-date and accurate across all aspects of the application.
 
-< insert >
+![Screen Shot 2023-04-03 at 12 43 33 PM](https://user-images.githubusercontent.com/105463926/229618669-e274d6de-f5d4-4478-ad48-7695202242cb.png)
+![validate1](https://user-images.githubusercontent.com/105463926/229618737-125634d7-5161-449e-93cf-b264aa41e47a.png)
+![validate2](https://user-images.githubusercontent.com/105463926/229618747-3e30fb63-4d02-443e-b9ef-317af9834283.png)
+![validate3](https://user-images.githubusercontent.com/105463926/229618762-b6e7708a-23e0-4b88-b1f7-36d504b01aa7.png)
+
 < Code for the Friends controller can be found in controllers/friends.js >
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

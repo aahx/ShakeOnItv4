@@ -14,7 +14,7 @@
     <a href="#demo">See Demo Below »</a>
     <br />
     <br />
-    <a href="https://shakeonit.herokuapp.com/" target="_blank">Live Link</a>
+    <a href="https://shakeonit.herokuapp.com/" target="_blank" rel="noopener noreferrer" >Live Link</a>
     ·
     <a href="https://github.com/sparklingwaterlemon/ShakeOnItv4/issues">Report Bug</a>
     ·
